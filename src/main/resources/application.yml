@@ -1,0 +1,48 @@
+server:
+  port: 8888
+
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver # mysql的驱动你可以配置别的关系型数据库
+    url: jdbc:mysql://47.100.224.160:3306/test?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true?characterEncoding=utf8&zeroDateTimeBehavior=convertToNull&useSSL=false&useJDBCCompliantTimezoneShift=true&useLegacyDatetimeCode=false&serverTimezone=GMT%2B8&allowMultiQueries=true
+    username: root # 用户名
+    password: 123456 # 密码
+  redis:
+    database: 1
+    host: 47.100.224.160
+    port: 6379
+    password: 12581...
+    jedis:
+      pool:
+        max-active: 50
+        max-wait: 3000
+        max-idle: 20
+        min-idle: 2
+    timeout: 5000
+  rabbitmq:
+    host: 47.100.224.160
+    port: 5672
+    username: guest
+    password: 12581
+#    手动确认消息
+#    listener:
+#      simple:
+#        acknowledge-mode: manual
+#      direct:
+#        acknowledge-mode: manual
+
+mybatis:
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.example.my_plus.mapper.*: debug
+
+upload:
+  image:
+    localDirPath: /usr/local/nginx/images
+    urlPath: http://47.100.224.160/images
+
+
